@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <h1> Index! </h1>
+    <p>안녕하세요 {name}입니다</p>
+    <form action="/getdata/" method="POST"> <!--action 주소 쓸 때 앞에 슬래쉬 빼면 현재 폴더? 위치의 겟데이터를 의미함. 앞 뒤로 슬래쉬 있으면 루트 주소의 겟데이터를 의미함-->
+        {% csrf_token %}
+        <input type="text" name="todo" />
+        <input type="text" name="todo2" />
+        <input type="text" name="todo3" />
+        <button type="submit">제출</button>
+    </form>
+
+</body>
+</html>
