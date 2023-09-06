@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %} {% block content %}
+<div>
     <h1>여기에서 todo를 작성해주세요</h1>
-    <form action="/todo/create/" method="post">
+    <form action="/todo/create/" method="post" enctype="multipart/form-data">   <!--이미지 넣을 때 enctype사용. 여러 화물을 담는 기차-->
         {% csrf_token %}
-        <input type="text" name="content" id="content">
+        <input type="text" name="content" id="content" />
+        <input type="file" name="image" id="" />
         <button type="submit">만들기</button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

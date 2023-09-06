@@ -12,3 +12,10 @@ class Todo(models.Model):
 
     def __str__(self):
         return self.content
+    
+class Comment(models.Model):    # user 하나가 여러 개 comment, todo 하나가 여러 개 comment -> 일대다
+    user = models.ForeignKey("user.User", on_delete = models.CASCADE)   # user.User -> import를 위핸
+    todo = models.ForeignKey(Todo, on_delete=models.CASCADE)    # relate_name 을 학습해서 써서 사용해보기
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

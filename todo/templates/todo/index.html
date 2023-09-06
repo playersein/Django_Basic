@@ -1,36 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% if request.user.is_authenticated %}
-    <div>{{ request.user.username }}</div>
-    <form action="/user/logout/" method="post">
-        {% csrf_token %}
-        <button>로그아웃하기</button>
-    </form>
-    {% else %}
-    <h1>비회원모드</h1>
-    <div>
-        <a href="/user/login/">로그인</a>
-        <a href="/user/signup/">회원가입</a>
-    </div>
-    {% endif %}
-    <a href="/todo/create/">
-        <button>새로 만들기</button>
+{% extends 'base.html' %} {% block content %}
+
+<div class="p-4">
+
+    <a href="/todo/create/" class="m-2 flex justify-end">
+        <button class="bg-green-600 p-2 rounded-full text-white">새로 만들기</button>
     </a>
 
-    <ul>
+    <ul class="list-group">
         {% for todo in todos %}
         <a href="/todo/{{ todo.id }}">
-            <li>
+            <li class="list-group-item">
                 {{ todo.content }}
             </li>
             {% endfor %}
         </a>
     </ul>
-</body>
-</html>
+</div>
+
+
+
+{% endblock %}
