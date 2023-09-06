@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#zev9cqs=(be=rh^1m25^=ys$)ikzfs^&m!recz9ky0vsyw0ia
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True    # True= 개발 중이다.
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '52.78.141.20' ]
 
 
 # Application definition
